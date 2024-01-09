@@ -1,0 +1,91 @@
+@import './hacker.css';
+@import './material.css';
+
+:root {
+    --background-color: #fff;
+    --font-color: #000;
+    --font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "head"
+        "main"
+        "foot";
+    background-color: var(--background-color);
+    color: var(--font-color);
+    font-family: var(--font-family);
+    margin: 0;
+}
+
+
+header {
+    grid-area: head;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 25px;
+    border-bottom: 1px solid var(--border-color);
+
+    & h1 {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    & .logo {
+        width: 44px;
+    }
+}
+
+main {
+    grid-area: main;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px;
+}
+
+footer {
+    grid-area: foot;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+svg {
+    width: 32px;
+    fill: var(--font-color);
+}
+
+.hidden-controls {
+    /* display: none; */
+}
+
+
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: #aaaa;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+        background-color: var(--background-color);
+    }
+}
+
+body:has(#settingsbtn:checked) #settings {
+    display: flex;
+}
